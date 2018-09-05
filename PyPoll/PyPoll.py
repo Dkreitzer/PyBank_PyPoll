@@ -38,23 +38,32 @@ OTooleyVote = Vote_Total[3]
 OTooleyPerc = ("{0:.3%}".format(OTooleyVote/Total_Votes))
 
 #PRINTING BELOW
-
 print("Election Results")                                #Election Results
-
 print("-"*25)                                            #dashed line
-
 print(f"Total Votes:  {Total_Votes}")                    #Print total number of votes
-
 print("-"*25)                                            #dashed line
-
 print(f"Kahn: {KahnPerc} ({KahnVote})")                  # print Kahn
 print(f"Correy: {CorreyPerc} ({CorreyVote})")            # print Correy
 print(f"Li: {LiPerc}  ({LiVote})")                       #print li
 print(f"O'Tooley: {OTooleyPerc} ({OTooleyVote})")        #print O'Tooley
-
 print("-"*25)                                            #dashed line
-
 print("Winner: Kahn")                                   #print the winner is
-
 print("-"*25)                                           #dashed line
 
+#Write results to a new text file
+#"\n" is added to create a new line after each entry
+text_file = open("PollPy_Results.txt", "w")
+with open("Pollpy_Results.txt", "w") as text_file:
+    print("Election Results"+ "\n"  +                           
+    ("-"*25) + "\n" +                                         
+    (f"Total Votes:  {Total_Votes}") + "\n" +                 
+    ("-"*25)  + "\n"  +                                          
+    (f"Kahn: {KahnPerc} ({KahnVote})")    + "\n"  +             
+    (f"Correy: {CorreyPerc} ({CorreyVote})")  + "\n"  +         
+    (f"Li: {LiPerc}  ({LiVote})")   + "\n"  +                   
+    (f"O'Tooley: {OTooleyPerc} ({OTooleyVote})")  + "\n"  +      
+    ("-"*25)   + "\n"  +                                        
+    (f"Winner: {Candidate_Names[0]}")  + "\n"  +                                
+    ("-"*25),  file=text_file)
+    
+text_file.close()

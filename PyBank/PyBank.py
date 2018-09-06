@@ -1,5 +1,4 @@
 #Import addins
-
 import os
 import csv
 import pandas as pd
@@ -21,10 +20,14 @@ AmtChange = Bank_pd["Profit/Losses"].diff()
 Bank_pd["Amount Changed"] = AmtChange
 
 #Identify the greatest positive change
+#The first line is to find and format the max dollar amount
+#The second line is to find the date in the same row as the max dollar amount.
 GreatestIncrease = '${:.0f}'.format(Bank_pd["Amount Changed"].max())
 Gi_Date = (Bank_pd.loc[Bank_pd['Amount Changed'].idxmax(), 'Date'])
 
 #Identify the greatest negative change
+#The first line is to find and format the min dollar amount
+#The second line is to find the date in the same row as the min dollar amount.
 GreatestDecrease =  '${:.0f}'.format(Bank_pd["Amount Changed"].min())
 Gd_Date =(Bank_pd.loc[Bank_pd['Amount Changed'].idxmin(), 'Date'])
 
